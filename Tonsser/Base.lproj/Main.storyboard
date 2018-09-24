@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FollowerCell" rowHeight="68" id="dDZ-zN-EdX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FollowerCell" rowHeight="68" id="dDZ-zN-EdX" customClass="FollowerTableViewCell" customModule="Tonsser" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dDZ-zN-EdX" id="wap-91-83Z">
@@ -48,6 +48,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUf-BI-4Uc">
                                             <rect key="frame" x="309" y="18" width="44" height="30"/>
                                             <state key="normal" title="Follow"/>
+                                            <connections>
+                                                <action selector="actionButtonWasPressed:" destination="dDZ-zN-EdX" eventType="touchUpInside" id="dL4-OY-Uuu"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -64,6 +67,12 @@
                                         <constraint firstItem="NZj-St-Tcq" firstAttribute="leading" secondItem="dJ5-2Z-wnG" secondAttribute="trailing" constant="22" id="ywj-bH-BHL"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="actionButton" destination="CUf-BI-4Uc" id="KXF-6t-T10"/>
+                                    <outlet property="followerImageView" destination="dJ5-2Z-wnG" id="K2z-VL-tdJ"/>
+                                    <outlet property="locationLabel" destination="NZj-St-Tcq" id="y1h-9w-NSZ"/>
+                                    <outlet property="nameLabel" destination="n4e-iC-g0Q" id="FRD-jz-Vg5"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
