@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		621D1F8321586492007E9AA3 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F8221586492007E9AA3 /* FollowersViewController.swift */; };
 		62F62BB12150436600C80070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F62BB02150436600C80070 /* AppDelegate.swift */; };
-		62F62BB32150436600C80070 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F62BB22150436600C80070 /* ViewController.swift */; };
 		62F62BB62150436600C80070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F62BB42150436600C80070 /* Main.storyboard */; };
 		62F62BB82150436700C80070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62F62BB72150436700C80070 /* Assets.xcassets */; };
 		62F62BBB2150436700C80070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F62BB92150436700C80070 /* LaunchScreen.storyboard */; };
@@ -20,9 +20,9 @@
 		1BD785AA449B7BA233186B00 /* Pods-Tonsser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tonsser.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tonsser/Pods-Tonsser.release.xcconfig"; sourceTree = "<group>"; };
 		2058C1586DE0D3EFC1C47A3B /* Pods_Tonsser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tonsser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB09B3F691746A0708BB7B1 /* Pods-Tonsser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tonsser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tonsser/Pods-Tonsser.debug.xcconfig"; sourceTree = "<group>"; };
+		621D1F8221586492007E9AA3 /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		62F62BAD2150436600C80070 /* Tonsser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tonsser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F62BB02150436600C80070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		62F62BB22150436600C80070 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		62F62BB52150436600C80070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62F62BB72150436700C80070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62F62BBA2150436700C80070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				62F62BB02150436600C80070 /* AppDelegate.swift */,
-				62F62BB22150436600C80070 /* ViewController.swift */,
+				621D1F8221586492007E9AA3 /* FollowersViewController.swift */,
 				62F62BB42150436600C80070 /* Main.storyboard */,
 				62F62BB72150436700C80070 /* Assets.xcassets */,
 				62F62BB92150436700C80070 /* LaunchScreen.storyboard */,
@@ -166,15 +166,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Tonsser-checkManifestLockResult.txt",
 			);
@@ -188,16 +184,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Tonsser/Pods-Tonsser-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -214,7 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62F62BB32150436600C80070 /* ViewController.swift in Sources */,
+				621D1F8321586492007E9AA3 /* FollowersViewController.swift in Sources */,
 				62F62BB12150436600C80070 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
