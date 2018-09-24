@@ -11,6 +11,8 @@ import UIKit
 
 final class FollowersViewController: UITableViewController {
     
+    private var datasource = FollowersDataSource()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,12 +20,14 @@ final class FollowersViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO:
-        return 3
+        return datasource.numberOfFollowers()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: FollowerTableViewCell.cellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: FollowerTableViewCell.cellIdentifier, for: indexPath) as! FollowerTableViewCell
+        cell.decorateCellWith(follower: datasource.followerAt(index: indexPath.row))
+        
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
