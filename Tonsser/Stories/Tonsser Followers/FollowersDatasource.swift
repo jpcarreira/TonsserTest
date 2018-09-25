@@ -8,13 +8,6 @@
 
 import Foundation
 
-struct Follower {
-    var profilePictureUrl: String?
-    var firstName: String
-    var lastName: String
-    var locationId: Int
-    var isFollowing: Bool
-}
 
 final class FollowersDataSource {
     

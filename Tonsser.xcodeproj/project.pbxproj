@@ -10,6 +10,9 @@
 		621D1F8321586492007E9AA3 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F8221586492007E9AA3 /* FollowersViewController.swift */; };
 		621D1F8521586A80007E9AA3 /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F8421586A80007E9AA3 /* FollowerTableViewCell.swift */; };
 		621D1F872159AA5F007E9AA3 /* FollowersDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F862159AA5F007E9AA3 /* FollowersDatasource.swift */; };
+		621D1F892159B09D007E9AA3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F882159B09D007E9AA3 /* HTTPClient.swift */; };
+		621D1F8B2159B1A9007E9AA3 /* TonsserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F8A2159B1A9007E9AA3 /* TonsserApi.swift */; };
+		621D1F90215AD617007E9AA3 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F8F215AD617007E9AA3 /* Follower.swift */; };
 		62F62BB12150436600C80070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F62BB02150436600C80070 /* AppDelegate.swift */; };
 		62F62BB62150436600C80070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F62BB42150436600C80070 /* Main.storyboard */; };
 		62F62BB82150436700C80070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62F62BB72150436700C80070 /* Assets.xcassets */; };
@@ -25,6 +28,9 @@
 		621D1F8221586492007E9AA3 /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		621D1F8421586A80007E9AA3 /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
 		621D1F862159AA5F007E9AA3 /* FollowersDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersDatasource.swift; sourceTree = "<group>"; };
+		621D1F882159B09D007E9AA3 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		621D1F8A2159B1A9007E9AA3 /* TonsserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TonsserApi.swift; sourceTree = "<group>"; };
+		621D1F8F215AD617007E9AA3 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		62F62BAD2150436600C80070 /* Tonsser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tonsser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F62BB02150436600C80070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62F62BB52150436600C80070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +60,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		621D1F8C215AD5A2007E9AA3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				621D1F882159B09D007E9AA3 /* HTTPClient.swift */,
+				621D1F8A2159B1A9007E9AA3 /* TonsserApi.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		621D1F8D215AD5CA007E9AA3 /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				621D1F8E215AD5D0007E9AA3 /* Tonsser Followers */,
+			);
+			path = Stories;
+			sourceTree = "<group>";
+		};
+		621D1F8E215AD5D0007E9AA3 /* Tonsser Followers */ = {
+			isa = PBXGroup;
+			children = (
+				621D1F8F215AD617007E9AA3 /* Follower.swift */,
+				621D1F862159AA5F007E9AA3 /* FollowersDatasource.swift */,
+				621D1F8221586492007E9AA3 /* FollowersViewController.swift */,
+				621D1F8421586A80007E9AA3 /* FollowerTableViewCell.swift */,
+			);
+			path = "Tonsser Followers";
+			sourceTree = "<group>";
+		};
 		62F62BA42150436600C80070 = {
 			isa = PBXGroup;
 			children = (
@@ -76,10 +110,9 @@
 		62F62BAF2150436600C80070 /* Tonsser */ = {
 			isa = PBXGroup;
 			children = (
+				621D1F8D215AD5CA007E9AA3 /* Stories */,
+				621D1F8C215AD5A2007E9AA3 /* Services */,
 				62F62BB02150436600C80070 /* AppDelegate.swift */,
-				621D1F862159AA5F007E9AA3 /* FollowersDatasource.swift */,
-				621D1F8221586492007E9AA3 /* FollowersViewController.swift */,
-				621D1F8421586A80007E9AA3 /* FollowerTableViewCell.swift */,
 				62F62BB42150436600C80070 /* Main.storyboard */,
 				62F62BB72150436700C80070 /* Assets.xcassets */,
 				62F62BB92150436700C80070 /* LaunchScreen.storyboard */,
@@ -213,7 +246,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				621D1F872159AA5F007E9AA3 /* FollowersDatasource.swift in Sources */,
+				621D1F90215AD617007E9AA3 /* Follower.swift in Sources */,
+				621D1F892159B09D007E9AA3 /* HTTPClient.swift in Sources */,
 				621D1F8321586492007E9AA3 /* FollowersViewController.swift in Sources */,
+				621D1F8B2159B1A9007E9AA3 /* TonsserApi.swift in Sources */,
 				62F62BB12150436600C80070 /* AppDelegate.swift in Sources */,
 				621D1F8521586A80007E9AA3 /* FollowerTableViewCell.swift in Sources */,
 			);

@@ -12,9 +12,15 @@ import UIKit
 final class FollowersViewController: UITableViewController {
     
     private var datasource = FollowersDataSource()
+    private let api = TonsserApi()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        api.getFollowers { (success, followers) in
+            // TODO:
+            print(followers)
+        }
         
         tableView.allowsSelection = false
     }
