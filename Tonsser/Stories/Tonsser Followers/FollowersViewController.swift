@@ -21,9 +21,9 @@ final class FollowersViewController: UITableViewController {
         activityIndicatorView.activityIndicatorViewStyle = .whiteLarge
         activityIndicatorView.backgroundColor = .black
         activityIndicatorView.alpha = 0.8
-        activityIndicatorView.layer.cornerRadius = 0.5
-        activityIndicatorView.center = self.view.center
-        self.view.addSubview(activityIndicatorView)
+        activityIndicatorView.layer.cornerRadius = 12
+        activityIndicatorView.center = view.center
+        view.addSubview(activityIndicatorView)
         
         datasource.delegate = self
         
