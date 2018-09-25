@@ -88,6 +88,19 @@
 			path = "Tonsser Followers";
 			sourceTree = "<group>";
 		};
+		621D1F94215ADDB4007E9AA3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				62F62BB02150436600C80070 /* AppDelegate.swift */,
+				62F62BB42150436600C80070 /* Main.storyboard */,
+				62F62BB72150436700C80070 /* Assets.xcassets */,
+				62F62BB92150436700C80070 /* LaunchScreen.storyboard */,
+				62F62BBC2150436700C80070 /* Info.plist */,
+			);
+			name = App;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		62F62BA42150436600C80070 = {
 			isa = PBXGroup;
 			children = (
@@ -110,13 +123,9 @@
 		62F62BAF2150436600C80070 /* Tonsser */ = {
 			isa = PBXGroup;
 			children = (
+				621D1F94215ADDB4007E9AA3 /* App */,
 				621D1F8D215AD5CA007E9AA3 /* Stories */,
 				621D1F8C215AD5A2007E9AA3 /* Services */,
-				62F62BB02150436600C80070 /* AppDelegate.swift */,
-				62F62BB42150436600C80070 /* Main.storyboard */,
-				62F62BB72150436700C80070 /* Assets.xcassets */,
-				62F62BB92150436700C80070 /* LaunchScreen.storyboard */,
-				62F62BBC2150436700C80070 /* Info.plist */,
 			);
 			path = Tonsser;
 			sourceTree = "<group>";
@@ -397,7 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Tonsser/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Tonsser/New Group/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -415,7 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Tonsser/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Tonsser/New Group/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
