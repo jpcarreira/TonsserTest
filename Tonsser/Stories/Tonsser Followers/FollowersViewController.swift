@@ -13,14 +13,26 @@ final class FollowersViewController: UITableViewController {
     
     private var datasource = FollowersDataSource()
     private let api = TonsserApi()
+    private var activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicatorView.activityIndicatorViewStyle = .whiteLarge
+        activityIndicatorView.backgroundColor = .black
+        activityIndicatorView.alpha = 0.8
+        activityIndicatorView.layer.cornerRadius = 0.5
+        activityIndicatorView.center = self.view.center
+        self.view.addSubview(activityIndicatorView)
+        
         datasource.delegate = self
         
+        toggle(loading: true)
         api.getFollowers { (success, followers) in
             self.datasource.add(followers: (followers?.response)!)
+            DispatchQueue.main.async {
+                self.toggle()
+            }
         }
         
         tableView.allowsSelection = false
@@ -39,6 +51,15 @@ final class FollowersViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return FollowerTableViewCell.cellHeight
+    }
+    
+    private func toggle(loading: Bool = false) {
+        tableView.isScrollEnabled = !loading
+        if loading {
+            activityIndicatorView.startAnimating()
+        } else {
+            activityIndicatorView.stopAnimating()
+        }
     }
 }
 
