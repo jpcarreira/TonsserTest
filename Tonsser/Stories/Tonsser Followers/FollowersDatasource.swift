@@ -9,18 +9,16 @@
 import Foundation
 
 
+protocol FollowersDataSourceDelegate: class {
+    func dataUpdated()
+}
+
+
 final class FollowersDataSource {
     
-    private var followers: Array<Follower>
+    weak var delegate: FollowersDataSourceDelegate?
     
-    init() {
-        // TODO: dummy data
-        followers = [
-            Follower(profilePictureUrl: "", firstName: "John", lastName: "Doe", locationId: 201, isFollowing: false),
-            Follower(profilePictureUrl: "", firstName: "Jane", lastName: "Doe", locationId: 201, isFollowing: false),
-            Follower(profilePictureUrl: "", firstName: "John", lastName: "Appleseed", locationId: 201, isFollowing: true)
-        ]
-    }
+    private var followers = Array<Follower>() 
     
     func numberOfFollowers() -> Int {
         return followers.count
@@ -28,5 +26,10 @@ final class FollowersDataSource {
     
     func followerAt(index: Int) -> Follower {
         return followers[index]
+    }
+    
+    func add(followers: [Follower]) {
+        self.followers.append(contentsOf: followers)
+        delegate?.dataUpdated()
     }
 }

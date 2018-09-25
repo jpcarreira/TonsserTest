@@ -17,9 +17,10 @@ final class FollowersViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        datasource.delegate = self
+        
         api.getFollowers { (success, followers) in
-            // TODO:
-            print(followers)
+            self.datasource.add(followers: (followers?.response)!)
         }
         
         tableView.allowsSelection = false
@@ -38,5 +39,15 @@ final class FollowersViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return FollowerTableViewCell.cellHeight
+    }
+}
+
+
+extension FollowersViewController: FollowersDataSourceDelegate {
+    
+    func dataUpdated() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
