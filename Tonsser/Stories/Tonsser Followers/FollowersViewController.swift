@@ -22,9 +22,7 @@ final class FollowersViewController: UITableViewController {
         activityIndicatorView.backgroundColor = .black
         activityIndicatorView.alpha = 0.8
         activityIndicatorView.layer.cornerRadius = 12
-        activityIndicatorView.center = view.center
         view.addSubview(activityIndicatorView)
-        
         datasource.delegate = self
         
         toggle(loading: true)
@@ -39,12 +37,24 @@ final class FollowersViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datasource.numberOfFollowers()
+        return datasource.numberOfFollowers
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FollowerTableViewCell.cellIdentifier, for: indexPath) as! FollowerTableViewCell
         cell.decorateCellWith(follower: datasource.followerAt(index: indexPath.row))
+        
+        if let lastSlug = datasource.lastSlug, indexPath.row == datasource.offsetToLoadMore - 1 {
+            toggle(loading: true)
+            api.getNextFollowers(for: lastSlug) { (success, followers) in
+                if success {
+                    self.datasource.add(followers: (followers?.response)!)
+                    DispatchQueue.main.async {
+                        self.toggle()
+                    }
+                }
+            }
+        }
         
         return cell
     }
@@ -56,6 +66,7 @@ final class FollowersViewController: UITableViewController {
     private func toggle(loading: Bool = false) {
         tableView.isScrollEnabled = !loading
         if loading {
+            activityIndicatorView.center = CGPoint(x: tableView.bounds.midX, y: tableView.bounds.midY)
             activityIndicatorView.startAnimating()
         } else {
             activityIndicatorView.stopAnimating()

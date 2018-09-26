@@ -18,10 +18,18 @@ final class FollowersDataSource {
     
     weak var delegate: FollowersDataSourceDelegate?
     
-    private var followers = Array<Follower>() 
+    private var followers = Array<Follower>()
     
-    func numberOfFollowers() -> Int {
+    var numberOfFollowers: Int {
         return followers.count
+    }
+    
+    var offsetToLoadMore: Int {
+        return followers.count - 5
+    }
+    
+    var lastSlug: String? {
+        return followers.last?.slug
     }
     
     func followerAt(index: Int) -> Follower {

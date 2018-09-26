@@ -40,6 +40,7 @@ struct Follower: Decodable {
     var lastName: String
     var locationId: Int
     var following: Bool
+    var slug: String
     
     enum CodingKeys: String, CodingKey {
         case profilePicture = "profile_picture"
@@ -47,23 +48,26 @@ struct Follower: Decodable {
         case lastName = "lastname"
         case countryId = "country_id"
         case isFollowing = "is_following"
+        case slug
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        profilePictureUrl = try container.decode(String.self, forKey: .profilePicture)
+        profilePictureUrl = try container.decodeIfPresent(String.self, forKey: .profilePicture)
         firstName = try container.decode(String.self, forKey: .firstName)
         lastName = try container.decode(String.self, forKey: .lastName)
         locationId = try container.decode(Int.self, forKey: .countryId)
         following = try container.decode(Bool.self, forKey: .isFollowing)
+        slug = try container.decode(String.self, forKey: .slug)
     }
     
-    init(profilePictureUrl: String, firstName: String, lastName: String, locationId: Int, isFollowing: Bool) {
+    init(profilePictureUrl: String, firstName: String, lastName: String, locationId: Int, isFollowing: Bool, slug: String) {
         self.profilePictureUrl = profilePictureUrl
         self.firstName = firstName
         self.lastName = lastName
         self.locationId = locationId
         self.following = isFollowing
+        self.slug = slug
     }
 }
 

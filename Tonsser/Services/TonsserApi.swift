@@ -28,4 +28,20 @@ final class TonsserApi {
             }
         }
     }
+    
+    func getNextFollowers(for slug: String, completionHandler: @escaping (Bool, FollowersData?) -> Void) {
+        HTTPClient.get(from: URL(string: "\(TonsserApi.baseUrl)?current_follow_slug=\(slug)")!) { (json, error) in
+            if error == nil {
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: json as Any, options: [])
+                    if let string = String(data: data, encoding: String.Encoding.utf8)?.data(using: .utf8) {
+                        let followersData = try JSONDecoder().decode(FollowersData.self, from: string)
+                        completionHandler(true, followersData)
+                    }
+                } catch {
+                    completionHandler(false, nil)
+                }
+            }
+        }
+    }
 }
