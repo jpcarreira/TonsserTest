@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 
 final class FollowerTableViewCell: UITableViewCell {
@@ -22,8 +23,13 @@ final class FollowerTableViewCell: UITableViewCell {
     func decorateCellWith(follower: Follower) {
         nameLabel.text = "\(follower.firstName) \(follower.lastName)"
         locationLabel.text = "\(follower.locationId)"
-        // TODO:
-        followerImageView.image = UIImage(named: "placeholder")
+        
+        if let imageProfileUrl = follower.profilePictureUrl {
+            followerImageView.kf.setImage(with: URL(string: imageProfileUrl))
+        } else {
+            followerImageView.image = UIImage(named: "placeholder")
+        }
+        
         actionButton.setTitle(follower.isFollowing ? "Unfollow" : "Follow", for: .normal)
     }
     
