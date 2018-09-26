@@ -25,13 +25,7 @@ final class FollowersViewController: UITableViewController {
         view.addSubview(activityIndicatorView)
         datasource.delegate = self
         
-        toggle(loading: true)
-        api.getFollowers { (success, followers) in
-            self.datasource.add(followers: (followers?.response)!)
-            DispatchQueue.main.async {
-                self.toggle()
-            }
-        }
+        getFollowers()
         
         tableView.allowsSelection = false
     }
@@ -45,15 +39,7 @@ final class FollowersViewController: UITableViewController {
         cell.decorateCellWith(follower: datasource.followerAt(index: indexPath.row))
         
         if let lastSlug = datasource.lastSlug, indexPath.row == datasource.offsetToLoadMore - 1 {
-            toggle(loading: true)
-            api.getNextFollowers(for: lastSlug) { (success, followers) in
-                if success {
-                    self.datasource.add(followers: (followers?.response)!)
-                    DispatchQueue.main.async {
-                        self.toggle()
-                    }
-                }
-            }
+            getFollowers(for: lastSlug)
         }
         
         return cell
@@ -61,6 +47,18 @@ final class FollowersViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return FollowerTableViewCell.cellHeight
+    }
+    
+    private func getFollowers(for slug: String? = nil) {
+        toggle(loading: true)
+        api.getFollowers(for: slug) { (success, followers) in
+            if success {
+                self.datasource.add(followers: (followers?.response)!)
+                DispatchQueue.main.async {
+                    self.toggle()
+                }
+            }
+        }
     }
     
     private func toggle(loading: Bool = false) {

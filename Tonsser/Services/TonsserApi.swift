@@ -13,24 +13,14 @@ final class TonsserApi {
     
     private static let baseUrl = "http://staging-api.tonsser.com/49/users/christian-planck/followers"
     
-    func getFollowers(with completionHandler: @escaping (Bool, FollowersData?) -> Void) {
-        HTTPClient.get(from: URL(string: TonsserApi.baseUrl)!) { (json, error) in
-            if error == nil {
-                do {
-                    let data = try JSONSerialization.data(withJSONObject: json as Any, options: [])
-                    if let string = String(data: data, encoding: String.Encoding.utf8)?.data(using: .utf8) {
-                        let followersData = try JSONDecoder().decode(FollowersData.self, from: string)
-                        completionHandler(true, followersData)
-                    }
-                } catch {
-                    completionHandler(false, nil)
-                }
-            }
+    func getFollowers(for slug: String? = nil, completionHandler: @escaping (Bool, FollowersData?) -> Void) {
+        var url: URL
+        if let slug = slug {
+            url = URL(string: "\(TonsserApi.baseUrl)?current_follow_slug=\(slug)")!
+        } else {
+            url = URL(string: "\(TonsserApi.baseUrl)")!
         }
-    }
-    
-    func getNextFollowers(for slug: String, completionHandler: @escaping (Bool, FollowersData?) -> Void) {
-        HTTPClient.get(from: URL(string: "\(TonsserApi.baseUrl)?current_follow_slug=\(slug)")!) { (json, error) in
+        HTTPClient.get(from: url) { (json, error) in
             if error == nil {
                 do {
                     let data = try JSONSerialization.data(withJSONObject: json as Any, options: [])
