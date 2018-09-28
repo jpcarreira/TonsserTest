@@ -13,6 +13,7 @@
 		621D1F892159B09D007E9AA3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F882159B09D007E9AA3 /* HTTPClient.swift */; };
 		621D1F8B2159B1A9007E9AA3 /* TonsserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F8A2159B1A9007E9AA3 /* TonsserApi.swift */; };
 		621D1F90215AD617007E9AA3 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F8F215AD617007E9AA3 /* Follower.swift */; };
+		629DA8C5215C4F4C007E44C2 /* TonsserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629DA8C4215C4F4C007E44C2 /* TonsserProfileViewController.swift */; };
 		62F62BB12150436600C80070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F62BB02150436600C80070 /* AppDelegate.swift */; };
 		62F62BB62150436600C80070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F62BB42150436600C80070 /* Main.storyboard */; };
 		62F62BB82150436700C80070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62F62BB72150436700C80070 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		621D1F882159B09D007E9AA3 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		621D1F8A2159B1A9007E9AA3 /* TonsserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TonsserApi.swift; sourceTree = "<group>"; };
 		621D1F8F215AD617007E9AA3 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
+		629DA8C4215C4F4C007E44C2 /* TonsserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TonsserProfileViewController.swift; sourceTree = "<group>"; };
 		62F62BAD2150436600C80070 /* Tonsser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tonsser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F62BB02150436600C80070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62F62BB52150436600C80070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				621D1F8E215AD5D0007E9AA3 /* Tonsser Followers */,
+				629DA8C3215C4F2A007E44C2 /* User Profile */,
 			);
 			path = Stories;
 			sourceTree = "<group>";
@@ -99,6 +102,14 @@
 			);
 			name = App;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		629DA8C3215C4F2A007E44C2 /* User Profile */ = {
+			isa = PBXGroup;
+			children = (
+				629DA8C4215C4F4C007E44C2 /* TonsserProfileViewController.swift */,
+			);
+			path = "User Profile";
 			sourceTree = "<group>";
 		};
 		62F62BA42150436600C80070 = {
@@ -263,6 +274,7 @@
 				621D1F8B2159B1A9007E9AA3 /* TonsserApi.swift in Sources */,
 				62F62BB12150436600C80070 /* AppDelegate.swift in Sources */,
 				621D1F8521586A80007E9AA3 /* FollowerTableViewCell.swift in Sources */,
+				629DA8C5215C4F4C007E44C2 /* TonsserProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

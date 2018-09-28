@@ -14,6 +14,7 @@ protocol FollowerEntityProtocol {
     var profilePicture: String? { get }
     var name: String { get }
     var location: String { get }
+    var role: String { get }
     var isFollowing: Bool { get }
 }
 
@@ -40,6 +41,7 @@ struct Follower: Decodable {
     var lastName: String
     var locationId: Int
     var following: Bool
+    var role: String
     var slug: String
     
     enum CodingKeys: String, CodingKey {
@@ -47,6 +49,7 @@ struct Follower: Decodable {
         case firstName = "firstname"
         case lastName = "lastname"
         case countryId = "country_id"
+        case role
         case isFollowing = "is_following"
         case slug
     }
@@ -57,18 +60,11 @@ struct Follower: Decodable {
         firstName = try container.decode(String.self, forKey: .firstName)
         lastName = try container.decode(String.self, forKey: .lastName)
         locationId = try container.decode(Int.self, forKey: .countryId)
+        role = try container.decode(String.self, forKey: .role)
         following = try container.decode(Bool.self, forKey: .isFollowing)
         slug = try container.decode(String.self, forKey: .slug)
     }
     
-    init(profilePictureUrl: String, firstName: String, lastName: String, locationId: Int, isFollowing: Bool, slug: String) {
-        self.profilePictureUrl = profilePictureUrl
-        self.firstName = firstName
-        self.lastName = lastName
-        self.locationId = locationId
-        self.following = isFollowing
-        self.slug = slug
-    }
 }
 
 

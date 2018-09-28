@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9nq-Yq-vov">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v8C-cB-kxd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,10 +7,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Followers View Controller-->
+        <!--Followers-->
         <scene sceneID="V27-fh-zgE">
             <objects>
                 <tableViewController id="9nq-Yq-vov" customClass="FollowersViewController" customModule="Tonsser" customModuleProvider="target" sceneMemberID="viewController">
@@ -72,6 +73,7 @@
                                     <outlet property="followerImageView" destination="dJ5-2Z-wnG" id="K2z-VL-tdJ"/>
                                     <outlet property="locationLabel" destination="NZj-St-Tcq" id="y1h-9w-NSZ"/>
                                     <outlet property="nameLabel" destination="n4e-iC-g0Q" id="FRD-jz-Vg5"/>
+                                    <segue destination="1FQ-eE-w0X" kind="show" identifier="FollowerDetail" id="0P1-7o-io6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -80,8 +82,88 @@
                             <outlet property="delegate" destination="9nq-Yq-vov" id="Nxo-VU-LFH"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Followers" id="siS-OY-vo3"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZo-8n-ZVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1093.5999999999999" y="47.226386806596707"/>
+        </scene>
+        <!--Tonsser Profile View Controller-->
+        <scene sceneID="gEv-Gi-GjU">
+            <objects>
+                <viewController id="1FQ-eE-w0X" customClass="TonsserProfileViewController" customModule="Tonsser" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g27-1F-gPX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jKQ-6B-WlS">
+                                <rect key="frame" x="16" y="80" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="VDt-Nn-0Bc"/>
+                                    <constraint firstAttribute="width" constant="80" id="zTt-e8-LTU"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfR-dS-4yr">
+                                <rect key="frame" x="104" y="80" width="107.5" height="31.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London, UK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbK-rW-Dud">
+                                <rect key="frame" x="104" y="139" width="93" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Nw-hJ-Rsf">
+                                <rect key="frame" x="104" y="112.5" width="35" height="15"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8Nw-hJ-Rsf" firstAttribute="centerY" secondItem="jKQ-6B-WlS" secondAttribute="centerY" id="04a-GL-rOW"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BfR-dS-4yr" secondAttribute="trailing" constant="20" symbolic="YES" id="AwY-oc-3tl"/>
+                            <constraint firstItem="jKQ-6B-WlS" firstAttribute="leading" secondItem="3Hb-j5-zH2" secondAttribute="leading" constant="16" id="H0v-OS-rZ0"/>
+                            <constraint firstItem="8Nw-hJ-Rsf" firstAttribute="leading" secondItem="BfR-dS-4yr" secondAttribute="leading" id="MLc-EK-hY6"/>
+                            <constraint firstItem="BfR-dS-4yr" firstAttribute="top" secondItem="jKQ-6B-WlS" secondAttribute="top" id="Mme-VV-apE"/>
+                            <constraint firstItem="TbK-rW-Dud" firstAttribute="leading" secondItem="8Nw-hJ-Rsf" secondAttribute="leading" id="Qdd-nI-drO"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Nw-hJ-Rsf" secondAttribute="trailing" constant="20" symbolic="YES" id="ggk-f3-P0z"/>
+                            <constraint firstItem="BfR-dS-4yr" firstAttribute="leading" secondItem="jKQ-6B-WlS" secondAttribute="trailing" constant="8" id="hwP-Ay-FOd"/>
+                            <constraint firstItem="TbK-rW-Dud" firstAttribute="bottom" secondItem="jKQ-6B-WlS" secondAttribute="bottom" id="jYr-q6-wwV"/>
+                            <constraint firstItem="jKQ-6B-WlS" firstAttribute="top" secondItem="3Hb-j5-zH2" secondAttribute="top" constant="16" id="k1j-Y9-3Gg"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TbK-rW-Dud" secondAttribute="trailing" constant="20" symbolic="YES" id="xF7-16-xBS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3Hb-j5-zH2"/>
+                    </view>
+                    <connections>
+                        <outlet property="locationLabel" destination="TbK-rW-Dud" id="1PB-y0-bWC"/>
+                        <outlet property="nameLabel" destination="BfR-dS-4yr" id="zys-Zn-cJn"/>
+                        <outlet property="profileImageView" destination="jKQ-6B-WlS" id="xSA-5o-LY0"/>
+                        <outlet property="roleLabel" destination="8Nw-hJ-Rsf" id="9bW-yb-4oT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="90p-Ho-PbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2032.8" y="46.326836581709152"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bF2-Ie-cD7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v8C-cB-kxd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MCF-iy-EXg">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9nq-Yq-vov" kind="relationship" relationship="rootViewController" id="8Ng-7s-Ib0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T1F-aW-1IH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="154.40000000000001" y="47.226386806596707"/>
         </scene>

@@ -11,6 +11,8 @@ import UIKit
 
 final class FollowersViewController: UITableViewController {
     
+    static let followerDetailSegueIdentifier = "FollowerDetail"
+    
     private var datasource = FollowersDataSource()
     private let api = TonsserApi()
     private var activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
@@ -26,8 +28,6 @@ final class FollowersViewController: UITableViewController {
         datasource.delegate = self
         
         getFollowers()
-        
-        tableView.allowsSelection = false
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,6 +47,22 @@ final class FollowersViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return FollowerTableViewCell.cellHeight
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == FollowersViewController.followerDetailSegueIdentifier {
+            guard let cell = sender as? FollowerTableViewCell else {
+                return
+            }
+            
+            let indexPath = tableView.indexPath(for: cell)
+            let model = datasource.followerAt(index: (indexPath?.row)!)
+            
+            guard let tonsserProfileViewController = segue.destination as? TonsserProfileViewController else {
+                return
+            }
+            tonsserProfileViewController.userProfile = model
+        }
     }
     
     private func getFollowers(for slug: String? = nil) {
