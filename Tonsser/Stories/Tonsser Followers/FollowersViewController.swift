@@ -36,7 +36,7 @@ final class FollowersViewController: UIViewController {
             }
             
             let indexPath = tableView.indexPath(for: cell)
-            let model = datasource.followerAt(index: (indexPath?.row)!)
+            let model = datasource.user(at: (indexPath?.row)!)
             
             guard let tonsserProfileViewController = segue.destination as? TonsserProfileViewController else {
                 return
@@ -49,7 +49,7 @@ final class FollowersViewController: UIViewController {
         toggle(loading: true)
         api.getFollowers(for: slug) { (success, followers) in
             if success {
-                self.datasource.add(followers: (followers?.response)!)
+                self.datasource.add(users: (followers?.response)!)
             }
             DispatchQueue.main.async {
                 self.toggle()
@@ -77,7 +77,7 @@ extension FollowersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FollowerTableViewCell.cellIdentifier, for: indexPath) as! FollowerTableViewCell
-        cell.decorateCellWith(follower: datasource.followerAt(index: indexPath.row))
+        cell.decorateCellWith(user: datasource.user(at: indexPath.row))
         
         if let lastSlug = datasource.lastSlug, indexPath.row == datasource.offsetToLoadMore - 1 {
             getFollowers(for: lastSlug)

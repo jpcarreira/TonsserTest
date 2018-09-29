@@ -20,17 +20,17 @@ final class FollowerTableViewCell: UITableViewCell {
     @IBOutlet weak var followerImageView: UIImageView!
     @IBOutlet weak var actionButton: UIButton!
     
-    func decorateCellWith(follower: Follower) {
-        nameLabel.text = "\(follower.firstName) \(follower.lastName)"
-        locationLabel.text = "\(follower.locationId)"
+    func decorateCellWith(user: User) {
+        nameLabel.text = "\(user.firstName) \(user.lastName)"
+        locationLabel.text = "\(user.locationId)"
         
-        if let imageProfileUrl = follower.profilePictureUrl {
+        if let imageProfileUrl = user.profilePictureUrl {
             followerImageView.kf.setImage(with: URL(string: imageProfileUrl))
         } else {
             followerImageView.image = UIImage(named: "placeholder")
         }
         
-        actionButton.setTitle(follower.isFollowing ? "Unfollow" : "Follow", for: .normal)
+        actionButton.setTitle(user.isFollowing ? "Unfollow" : "Follow", for: .normal)
     }
     
     @IBAction func actionButtonWasPressed(_ sender: UIButton) {

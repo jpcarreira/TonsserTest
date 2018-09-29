@@ -18,7 +18,7 @@ final class FollowersDataSource {
     
     weak var delegate: FollowersDataSourceDelegate?
     
-    private var followers = Array<Follower>()
+    private var followers = Array<User>()
     
     var numberOfFollowers: Int {
         return followers.count
@@ -32,12 +32,12 @@ final class FollowersDataSource {
         return followers.last?.slug
     }
     
-    func followerAt(index: Int) -> Follower {
+    func user(at index: Int) -> User {
         return followers[index]
     }
     
-    func add(followers: [Follower]) {
-        self.followers.append(contentsOf: followers)
+    func add(users: [User]) {
+        self.followers.append(contentsOf: users)
         delegate?.dataUpdated()
     }
 }

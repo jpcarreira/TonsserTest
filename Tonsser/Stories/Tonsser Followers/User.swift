@@ -20,7 +20,7 @@ protocol FollowerEntityProtocol {
 
 struct FollowersData: Decodable {
     
-    var response: Array<Follower>
+    var response: Array<User>
     
     enum CodingKeys: String, CodingKey {
         case response
@@ -33,7 +33,7 @@ struct FollowersData: Decodable {
 }
 
 
-struct Follower: Decodable {
+struct User: Decodable {
     
     var profilePictureUrl: String?
     var firstName: String
@@ -69,7 +69,7 @@ struct Follower: Decodable {
 }
 
 
-extension Follower: FollowerEntityProtocol {
+extension User: FollowerEntityProtocol {
     
     var profilePicture: String? {
         return profilePictureUrl ?? nil
