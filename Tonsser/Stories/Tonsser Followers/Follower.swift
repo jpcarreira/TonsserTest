@@ -6,8 +6,6 @@
 //  Copyright © 2018 jpcarreira. All rights reserved.
 //
 
-import Foundation
-
 
 protocol FollowerEntityProtocol {
     
@@ -16,6 +14,7 @@ protocol FollowerEntityProtocol {
     var location: String { get }
     var role: String { get }
     var isFollowing: Bool { get }
+    var team: Team? { get }
 }
 
 
@@ -43,6 +42,7 @@ struct Follower: Decodable {
     var following: Bool
     var role: String
     var slug: String
+    var team: Team?
     
     enum CodingKeys: String, CodingKey {
         case profilePicture = "profile_picture"
@@ -52,6 +52,7 @@ struct Follower: Decodable {
         case role
         case isFollowing = "is_following"
         case slug
+        case team
     }
     
     init(from decoder: Decoder) throws {
@@ -63,8 +64,8 @@ struct Follower: Decodable {
         role = try container.decode(String.self, forKey: .role)
         following = try container.decode(Bool.self, forKey: .isFollowing)
         slug = try container.decode(String.self, forKey: .slug)
+        team = try container.decodeIfPresent(Team.self, forKey: .team)
     }
-    
 }
 
 

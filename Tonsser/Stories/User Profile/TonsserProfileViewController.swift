@@ -17,6 +17,11 @@ final class TonsserProfileViewController: UIViewController {
     @IBOutlet weak var roleLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
+    @IBOutlet weak var teamImageView: UIImageView!
+    @IBOutlet weak var teamNameLabel: UILabel!
+    @IBOutlet weak var playersLabel: UILabel!
+    @IBOutlet weak var leagueNameLabel: UILabel!
+    
     var userProfile: FollowerEntityProtocol?
     
     override func viewDidLoad() {
@@ -32,9 +37,18 @@ final class TonsserProfileViewController: UIViewController {
     }
     
     private func decorateView() {
-        profileImageView.kf.setImage(with: URL(string: (userProfile?.profilePicture)!))
+        if let image = userProfile?.profilePicture {
+            profileImageView.kf.setImage(with: URL(string: image))
+        }
         nameLabel.text = userProfile?.name
         roleLabel.text = userProfile?.role
         locationLabel.text = userProfile?.location
+        
+        if let logo = userProfile?.team?.logoUrl {
+            teamImageView.kf.setImage(with: URL(string: logo))
+        }
+        teamNameLabel.text = userProfile?.team?.name
+        playersLabel.text = "\(userProfile?.team?.players ?? 0) players"
+        leagueNameLabel.text = userProfile?.team?.league
     }
 }

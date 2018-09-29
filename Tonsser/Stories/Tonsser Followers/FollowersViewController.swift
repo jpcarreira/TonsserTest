@@ -70,9 +70,9 @@ final class FollowersViewController: UITableViewController {
         api.getFollowers(for: slug) { (success, followers) in
             if success {
                 self.datasource.add(followers: (followers?.response)!)
-                DispatchQueue.main.async {
-                    self.toggle()
-                }
+            }
+            DispatchQueue.main.async {
+                self.toggle()
             }
         }
     }

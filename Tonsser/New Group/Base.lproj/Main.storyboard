@@ -110,26 +110,63 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London, UK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbK-rW-Dud">
-                                <rect key="frame" x="104" y="139" width="93" height="21"/>
+                                <rect key="frame" x="104" y="139.5" width="93" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Nw-hJ-Rsf">
-                                <rect key="frame" x="104" y="112.5" width="35" height="15"/>
+                                <rect key="frame" x="104" y="113" width="35" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="smE-fp-bg4">
+                                <rect key="frame" x="134.5" y="273" width="106.5" height="121.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cm5-30-DSc">
+                                        <rect key="frame" x="23" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="XrV-QD-pCC"/>
+                                            <constraint firstAttribute="height" constant="60" id="c3W-Ly-4Iv"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Q8j-6z-KdU">
+                                        <rect key="frame" x="0.0" y="60" width="106.5" height="61.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lG1-bQ-etv">
+                                                <rect key="frame" x="0.0" y="0.0" width="106.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99 players" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHw-Lm-mu2">
+                                                <rect key="frame" x="0.0" y="20.5" width="106.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="League name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hL-d8-Xgv">
+                                                <rect key="frame" x="0.0" y="41" width="106.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8Nw-hJ-Rsf" firstAttribute="centerY" secondItem="jKQ-6B-WlS" secondAttribute="centerY" id="04a-GL-rOW"/>
+                            <constraint firstItem="smE-fp-bg4" firstAttribute="centerX" secondItem="g27-1F-gPX" secondAttribute="centerX" id="5B1-NT-5QP"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BfR-dS-4yr" secondAttribute="trailing" constant="20" symbolic="YES" id="AwY-oc-3tl"/>
                             <constraint firstItem="jKQ-6B-WlS" firstAttribute="leading" secondItem="3Hb-j5-zH2" secondAttribute="leading" constant="16" id="H0v-OS-rZ0"/>
                             <constraint firstItem="8Nw-hJ-Rsf" firstAttribute="leading" secondItem="BfR-dS-4yr" secondAttribute="leading" id="MLc-EK-hY6"/>
                             <constraint firstItem="BfR-dS-4yr" firstAttribute="top" secondItem="jKQ-6B-WlS" secondAttribute="top" id="Mme-VV-apE"/>
                             <constraint firstItem="TbK-rW-Dud" firstAttribute="leading" secondItem="8Nw-hJ-Rsf" secondAttribute="leading" id="Qdd-nI-drO"/>
+                            <constraint firstItem="smE-fp-bg4" firstAttribute="centerY" secondItem="g27-1F-gPX" secondAttribute="centerY" id="fU1-e0-WVS"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Nw-hJ-Rsf" secondAttribute="trailing" constant="20" symbolic="YES" id="ggk-f3-P0z"/>
                             <constraint firstItem="BfR-dS-4yr" firstAttribute="leading" secondItem="jKQ-6B-WlS" secondAttribute="trailing" constant="8" id="hwP-Ay-FOd"/>
                             <constraint firstItem="TbK-rW-Dud" firstAttribute="bottom" secondItem="jKQ-6B-WlS" secondAttribute="bottom" id="jYr-q6-wwV"/>
@@ -139,10 +176,14 @@
                         <viewLayoutGuide key="safeArea" id="3Hb-j5-zH2"/>
                     </view>
                     <connections>
+                        <outlet property="leagueNameLabel" destination="3hL-d8-Xgv" id="K64-0I-hsg"/>
                         <outlet property="locationLabel" destination="TbK-rW-Dud" id="1PB-y0-bWC"/>
                         <outlet property="nameLabel" destination="BfR-dS-4yr" id="zys-Zn-cJn"/>
+                        <outlet property="playersLabel" destination="kHw-Lm-mu2" id="Quh-2I-FaB"/>
                         <outlet property="profileImageView" destination="jKQ-6B-WlS" id="xSA-5o-LY0"/>
                         <outlet property="roleLabel" destination="8Nw-hJ-Rsf" id="9bW-yb-4oT"/>
+                        <outlet property="teamImageView" destination="cm5-30-DSc" id="RSB-8k-2Xm"/>
+                        <outlet property="teamNameLabel" destination="lG1-bQ-etv" id="XNW-BH-9eG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="90p-Ho-PbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
