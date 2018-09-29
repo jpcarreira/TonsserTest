@@ -85,7 +85,6 @@
 		621D1F8E215AD5D0007E9AA3 /* Tonsser Followers */ = {
 			isa = PBXGroup;
 			children = (
-				621D1F8F215AD617007E9AA3 /* User.swift */,
 				621D1F862159AA5F007E9AA3 /* FollowersDatasource.swift */,
 				621D1F8221586492007E9AA3 /* FollowersViewController.swift */,
 				621D1F8421586A80007E9AA3 /* FollowerTableViewCell.swift */,
@@ -110,9 +109,17 @@
 			isa = PBXGroup;
 			children = (
 				629DA8C4215C4F4C007E44C2 /* TonsserProfileViewController.swift */,
-				629DA8C6215FA4A1007E44C2 /* Team.swift */,
 			);
 			path = "User Profile";
+			sourceTree = "<group>";
+		};
+		629DA8C821602898007E44C2 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				621D1F8F215AD617007E9AA3 /* User.swift */,
+				629DA8C6215FA4A1007E44C2 /* Team.swift */,
+			);
+			path = Business;
 			sourceTree = "<group>";
 		};
 		62F62BA42150436600C80070 = {
@@ -138,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				621D1F94215ADDB4007E9AA3 /* App */,
+				629DA8C821602898007E44C2 /* Business */,
 				621D1F8D215AD5CA007E9AA3 /* Stories */,
 				621D1F8C215AD5A2007E9AA3 /* Services */,
 			);

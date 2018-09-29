@@ -31,17 +31,16 @@ final class FollowersViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == FollowersViewController.followerDetailSegueIdentifier {
-            guard let cell = sender as? FollowerTableViewCell else {
-                return
+            guard
+                let cell = sender as? FollowerTableViewCell,
+                let indexPath = tableView.indexPath(for: cell),
+                let tonsserProfileViewController = segue.destination as? TonsserProfileViewController else {
+                    return
             }
             
-            let indexPath = tableView.indexPath(for: cell)
-            let model = datasource.user(at: (indexPath?.row)!)
-            
-            guard let tonsserProfileViewController = segue.destination as? TonsserProfileViewController else {
-                return
-            }
+            let model = datasource.user(at: indexPath.row)
             tonsserProfileViewController.userProfile = model
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
