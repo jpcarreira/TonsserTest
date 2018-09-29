@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Followers View Controller-->
+        <!--Followers-->
         <scene sceneID="DVb-hB-9HV">
             <objects>
                 <viewController id="2hj-ng-cK0" customClass="FollowersViewController" customModule="Tonsser" customModuleProvider="target" sceneMemberID="viewController">
@@ -123,11 +123,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rQH-jU-Ufp"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZSy-mE-488"/>
+                    <navigationItem key="navigationItem" title="Followers" id="ZSy-mE-488">
+                        <barButtonItem key="rightBarButtonItem" title="👀 0" id="ibb-CU-GCA"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="spinner" destination="PLw-mw-htg" id="WRc-IG-QgO"/>
                         <outlet property="spinnerCointainerView" destination="Kbd-6n-Av0" id="fho-ZA-pR1"/>
                         <outlet property="tableView" destination="FiF-6g-2od" id="A7X-So-C5l"/>
+                        <outlet property="viewedProfilesButton" destination="ibb-CU-GCA" id="PYM-FP-5u2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FFF-Sh-IY8" userLabel="First Responder" sceneMemberID="firstResponder"/>

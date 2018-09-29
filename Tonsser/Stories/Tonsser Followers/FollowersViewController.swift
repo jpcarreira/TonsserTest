@@ -14,10 +14,17 @@ final class FollowersViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var spinnerCointainerView: UIView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var viewedProfilesButton: UIBarButtonItem!
     
     static let followerDetailSegueIdentifier = "FollowerDetail"
     private var datasource = FollowersDataSource()
     private let api = TonsserApi()
+    
+    private var viewedProfiles: Int = 0 {
+        didSet {
+            viewedProfilesButton.title = "👀 \(viewedProfiles)"
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +48,8 @@ final class FollowersViewController: UIViewController {
             let model = datasource.user(at: indexPath.row)
             tonsserProfileViewController.userProfile = model
             tableView.deselectRow(at: indexPath, animated: true)
+            
+            viewedProfiles += 1
         }
     }
     
