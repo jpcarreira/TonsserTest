@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 
 final class FollowersViewController: UIViewController {
@@ -20,11 +22,8 @@ final class FollowersViewController: UIViewController {
     private var datasource = FollowersDataSource()
     private let api = TonsserApi()
     
-    private var viewedProfiles: Int = 0 {
-        didSet {
-            viewedProfilesButton.title = "👀 \(viewedProfiles)"
-        }
-    }
+    private var viewedProfiles: Variable<Int> = Variable(0)
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +32,7 @@ final class FollowersViewController: UIViewController {
         spinnerCointainerView.layer.cornerRadius = 20
         datasource.delegate = self
         
+        setupViewedProfilesObserver()
         getFollowers()
     }
     
@@ -49,7 +49,7 @@ final class FollowersViewController: UIViewController {
             tonsserProfileViewController.userProfile = model
             tableView.deselectRow(at: indexPath, animated: true)
             
-            viewedProfiles += 1
+            viewedProfiles.value += 1
         }
     }
     
@@ -73,6 +73,14 @@ final class FollowersViewController: UIViewController {
         } else {
             spinner.stopAnimating()
         }
+    }
+    
+    private func setupViewedProfilesObserver() {
+        viewedProfiles.asObservable()
+            .subscribe { value in
+                self.viewedProfilesButton.title = "👀 \(value.element ?? 0)"
+            }
+            .disposed(by: disposeBag)
     }
 }
 
