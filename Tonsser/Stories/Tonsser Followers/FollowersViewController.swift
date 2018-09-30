@@ -19,7 +19,13 @@ final class FollowersViewController: UIViewController {
     @IBOutlet weak var viewedProfilesButton: UIBarButtonItem!
     
     static let followerDetailSegueIdentifier = "FollowerDetail"
-    private var datasource = FollowersDataSource()
+    private var followersDataSource = Array<User>() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     private let api = TonsserApi()
     
     private var viewedProfiles: Variable<Int> = Variable(0)
@@ -30,7 +36,6 @@ final class FollowersViewController: UIViewController {
         
         spinnerCointainerView.isHidden = true
         spinnerCointainerView.layer.cornerRadius = 20
-        datasource.delegate = self
         
         setupViewedProfilesObserver()
         getFollowers()
@@ -45,7 +50,7 @@ final class FollowersViewController: UIViewController {
                     return
             }
             
-            let model = datasource.user(at: indexPath.row)
+            let model = followersDataSource[indexPath.row]
             tonsserProfileViewController.userProfile = model
             tableView.deselectRow(at: indexPath, animated: true)
             
@@ -57,7 +62,7 @@ final class FollowersViewController: UIViewController {
         toggle(loading: true)
         api.getFollowers(for: slug) { (success, followers) in
             if success {
-                self.datasource.add(users: (followers?.response)!)
+                self.followersDataSource.append(contentsOf: followers!.response)
             }
             DispatchQueue.main.async {
                 self.toggle()
@@ -88,14 +93,14 @@ final class FollowersViewController: UIViewController {
 extension FollowersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datasource.numberOfFollowers
+        return followersDataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FollowerTableViewCell.cellIdentifier, for: indexPath) as! FollowerTableViewCell
-        cell.decorateCellWith(user: datasource.user(at: indexPath.row))
+        cell.decorateCellWith(user: followersDataSource[indexPath.row])
         
-        if let lastSlug = datasource.lastSlug, indexPath.row == datasource.offsetToLoadMore - 1 {
+        if let lastSlug = followersDataSource.last?.slug, indexPath.row == followersDataSource.count - 5 - 1 {
             getFollowers(for: lastSlug)
         }
         
@@ -108,15 +113,5 @@ extension FollowersViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return FollowerTableViewCell.cellHeight
-    }
-}
-
-
-extension FollowersViewController: FollowersDataSourceDelegate {
-    
-    func dataUpdated() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
     }
 }

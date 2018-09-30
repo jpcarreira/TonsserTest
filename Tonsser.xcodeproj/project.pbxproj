@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		621D1F8321586492007E9AA3 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F8221586492007E9AA3 /* FollowersViewController.swift */; };
 		621D1F8521586A80007E9AA3 /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F8421586A80007E9AA3 /* FollowerTableViewCell.swift */; };
-		621D1F872159AA5F007E9AA3 /* FollowersDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F862159AA5F007E9AA3 /* FollowersDatasource.swift */; };
 		621D1F892159B09D007E9AA3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F882159B09D007E9AA3 /* HTTPClient.swift */; };
 		621D1F8B2159B1A9007E9AA3 /* TonsserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F8A2159B1A9007E9AA3 /* TonsserApi.swift */; };
 		621D1F90215AD617007E9AA3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621D1F8F215AD617007E9AA3 /* User.swift */; };
@@ -29,7 +28,6 @@
 		5EB09B3F691746A0708BB7B1 /* Pods-Tonsser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tonsser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tonsser/Pods-Tonsser.debug.xcconfig"; sourceTree = "<group>"; };
 		621D1F8221586492007E9AA3 /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		621D1F8421586A80007E9AA3 /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
-		621D1F862159AA5F007E9AA3 /* FollowersDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersDatasource.swift; sourceTree = "<group>"; };
 		621D1F882159B09D007E9AA3 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		621D1F8A2159B1A9007E9AA3 /* TonsserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TonsserApi.swift; sourceTree = "<group>"; };
 		621D1F8F215AD617007E9AA3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 		621D1F8E215AD5D0007E9AA3 /* Tonsser Followers */ = {
 			isa = PBXGroup;
 			children = (
-				621D1F862159AA5F007E9AA3 /* FollowersDatasource.swift */,
 				621D1F8221586492007E9AA3 /* FollowersViewController.swift */,
 				621D1F8421586A80007E9AA3 /* FollowerTableViewCell.swift */,
 			);
@@ -279,7 +276,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				629DA8C7215FA4A1007E44C2 /* Team.swift in Sources */,
-				621D1F872159AA5F007E9AA3 /* FollowersDatasource.swift in Sources */,
 				621D1F90215AD617007E9AA3 /* User.swift in Sources */,
 				621D1F892159B09D007E9AA3 /* HTTPClient.swift in Sources */,
 				621D1F8321586492007E9AA3 /* FollowersViewController.swift in Sources */,
