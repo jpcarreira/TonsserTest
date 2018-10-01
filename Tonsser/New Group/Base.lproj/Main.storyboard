@@ -80,10 +80,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="2hj-ng-cK0" id="Rn2-l4-gHA"/>
-                                    <outlet property="delegate" destination="2hj-ng-cK0" id="9NR-z5-Ymz"/>
-                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kbd-6n-Av0">
                                 <rect key="frame" x="20" y="84" width="335" height="563"/>

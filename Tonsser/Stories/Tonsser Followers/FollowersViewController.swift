@@ -90,28 +90,28 @@ final class FollowersViewController: UIViewController {
 }
 
 
-extension FollowersViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return followersDataSource.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FollowerTableViewCell.cellIdentifier, for: indexPath) as! FollowerTableViewCell
-        cell.decorateCellWith(user: followersDataSource[indexPath.row])
-        
-        if let lastSlug = followersDataSource.last?.slug, indexPath.row == followersDataSource.count - 5 - 1 {
-            getFollowers(for: lastSlug)
-        }
-        
-        return cell
-    }
-}
+//extension FollowersViewController: UITableViewDataSource {
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return followersDataSource.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: FollowerTableViewCell.cellIdentifier, for: indexPath) as! FollowerTableViewCell
+//        cell.decorateCellWith(user: followersDataSource[indexPath.row])
+//
+//        if let lastSlug = followersDataSource.last?.slug, indexPath.row == followersDataSource.count - 5 - 1 {
+//            getFollowers(for: lastSlug)
+//        }
+//
+//        return cell
+//    }
+//}
 
 
-extension FollowersViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return FollowerTableViewCell.cellHeight
-    }
-}
+//extension FollowersViewController: UITableViewDelegate {
+//    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return FollowerTableViewCell.cellHeight
+//    }
+//}
