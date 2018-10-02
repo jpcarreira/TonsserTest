@@ -18,7 +18,6 @@ final class FollowerTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var followerImageView: UIImageView!
-    @IBOutlet weak var actionButton: UIButton!
     
     func decorateCellWith(user: User) {
         nameLabel.text = "\(user.firstName) \(user.lastName)"
@@ -29,12 +28,5 @@ final class FollowerTableViewCell: UITableViewCell {
         } else {
             followerImageView.image = UIImage(named: "placeholder")
         }
-        
-        actionButton.setTitle(user.isFollowing ? "Unfollow" : "Follow", for: .normal)
-    }
-    
-    @IBAction func actionButtonWasPressed(_ sender: UIButton) {
-        // TODO:
-        print("Did press action button")
     }
 }

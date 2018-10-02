@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,30 +48,19 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUf-BI-4Uc">
-                                                    <rect key="frame" x="310" y="18" width="44" height="30"/>
-                                                    <state key="normal" title="Follow"/>
-                                                    <connections>
-                                                        <action selector="actionButtonWasPressed:" destination="dDZ-zN-EdX" eventType="touchUpInside" id="dL4-OY-Uuu"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="n4e-iC-g0Q" firstAttribute="leading" secondItem="dJ5-2Z-wnG" secondAttribute="trailing" constant="22" id="0d7-ZB-brY"/>
                                                 <constraint firstItem="NZj-St-Tcq" firstAttribute="bottom" secondItem="dJ5-2Z-wnG" secondAttribute="bottom" id="3tJ-M5-QlB"/>
-                                                <constraint firstItem="CUf-BI-4Uc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wap-91-83Z" secondAttribute="leadingMargin" id="Ig9-Pb-nQY"/>
                                                 <constraint firstItem="dJ5-2Z-wnG" firstAttribute="centerY" secondItem="wap-91-83Z" secondAttribute="centerY" id="Jb0-ZG-dnn"/>
-                                                <constraint firstItem="CUf-BI-4Uc" firstAttribute="centerY" secondItem="wap-91-83Z" secondAttribute="centerY" id="QRC-NB-kqg"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="n4e-iC-g0Q" secondAttribute="trailing" constant="20" symbolic="YES" id="RTZ-bM-7ek"/>
                                                 <constraint firstItem="dJ5-2Z-wnG" firstAttribute="leading" secondItem="wap-91-83Z" secondAttribute="leading" constant="12" id="Sts-BT-HWe"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NZj-St-Tcq" secondAttribute="trailing" constant="20" symbolic="YES" id="d1r-l5-IeX"/>
                                                 <constraint firstItem="n4e-iC-g0Q" firstAttribute="top" secondItem="dJ5-2Z-wnG" secondAttribute="top" id="gbh-nA-zSJ"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="CUf-BI-4Uc" secondAttribute="trailing" constant="6" id="hbi-NI-YEY"/>
                                                 <constraint firstItem="NZj-St-Tcq" firstAttribute="leading" secondItem="dJ5-2Z-wnG" secondAttribute="trailing" constant="22" id="ywj-bH-BHL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="actionButton" destination="CUf-BI-4Uc" id="KXF-6t-T10"/>
                                             <outlet property="followerImageView" destination="dJ5-2Z-wnG" id="K2z-VL-tdJ"/>
                                             <outlet property="locationLabel" destination="NZj-St-Tcq" id="y1h-9w-NSZ"/>
                                             <outlet property="nameLabel" destination="n4e-iC-g0Q" id="FRD-jz-Vg5"/>
