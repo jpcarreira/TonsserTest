@@ -33,6 +33,7 @@
 		621D1F8F215AD617007E9AA3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		629DA8C4215C4F4C007E44C2 /* TonsserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TonsserProfileViewController.swift; sourceTree = "<group>"; };
 		629DA8C6215FA4A1007E44C2 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		629DA8C9216382EA007E44C2 /* Algorithm Challenge.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Algorithm Challenge.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		62F62BAD2150436600C80070 /* Tonsser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tonsser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F62BB02150436600C80070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62F62BB52150436600C80070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 		62F62BA42150436600C80070 = {
 			isa = PBXGroup;
 			children = (
+				629DA8C9216382EA007E44C2 /* Algorithm Challenge.playground */,
 				62F62BD021504D3000C80070 /* Podfile */,
 				62F62BAF2150436600C80070 /* Tonsser */,
 				62F62BAE2150436600C80070 /* Products */,
