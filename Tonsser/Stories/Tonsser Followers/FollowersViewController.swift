@@ -19,15 +19,12 @@ final class FollowersViewController: UIViewController {
     @IBOutlet weak var viewedProfilesButton: UIBarButtonItem!
     
     static let followerDetailSegueIdentifier = "FollowerDetail"
-    private var followersDataSource = Array<User>() {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
+    static let reloadDataOffset = 5
+
     private let api = TonsserApi()
     
+    // Rx properties
+    let followersDataSource = Variable<[User]>([])
     private var viewedProfiles: Variable<Int> = Variable(0)
     private let disposeBag = DisposeBag()
     
@@ -38,6 +35,8 @@ final class FollowersViewController: UIViewController {
         spinnerCointainerView.layer.cornerRadius = 20
         
         setupViewedProfilesObserver()
+        setupDataSourceObserver()
+        
         getFollowers()
     }
     
@@ -50,7 +49,7 @@ final class FollowersViewController: UIViewController {
                     return
             }
             
-            let model = followersDataSource[indexPath.row]
+            let model = followersDataSource.value[indexPath.row]
             tonsserProfileViewController.userProfile = model
             tableView.deselectRow(at: indexPath, animated: true)
             
@@ -62,7 +61,7 @@ final class FollowersViewController: UIViewController {
         toggle(loading: true)
         api.getFollowers(for: slug) { (success, followers) in
             if success {
-                self.followersDataSource.append(contentsOf: followers!.response)
+                self.followersDataSource.value.append(contentsOf: followers!.response)
             }
             DispatchQueue.main.async {
                 self.toggle()
@@ -80,6 +79,7 @@ final class FollowersViewController: UIViewController {
         }
     }
     
+    // Rx methods
     private func setupViewedProfilesObserver() {
         viewedProfiles.asObservable()
             .subscribe { value in
@@ -87,31 +87,35 @@ final class FollowersViewController: UIViewController {
             }
             .disposed(by: disposeBag)
     }
+    
+    private func setupDataSourceObserver() {
+        tableView
+            .rx
+            .setDelegate(self)
+            .disposed(by: disposeBag)
+        
+        followersDataSource
+            .asObservable()
+            .bind(to:
+                tableView
+                    .rx
+                    .items(cellIdentifier: FollowerTableViewCell.cellIdentifier)) { row, user, cell in
+                        if let cell = cell as? FollowerTableViewCell {
+                            cell.decorateCellWith(user: user)
+                        }
+                    
+                        if row == self.followersDataSource.value.count - FollowersViewController.reloadDataOffset {
+                            self.getFollowers(for: self.followersDataSource.value[row].slug)
+                        }
+                    }
+            .disposed(by: disposeBag)
+    }
 }
 
 
-//extension FollowersViewController: UITableViewDataSource {
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return followersDataSource.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: FollowerTableViewCell.cellIdentifier, for: indexPath) as! FollowerTableViewCell
-//        cell.decorateCellWith(user: followersDataSource[indexPath.row])
-//
-//        if let lastSlug = followersDataSource.last?.slug, indexPath.row == followersDataSource.count - 5 - 1 {
-//            getFollowers(for: lastSlug)
-//        }
-//
-//        return cell
-//    }
-//}
-
-
-//extension FollowersViewController: UITableViewDelegate {
-//    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return FollowerTableViewCell.cellHeight
-//    }
-//}
+extension FollowersViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return FollowerTableViewCell.cellHeight
+    }
+}
