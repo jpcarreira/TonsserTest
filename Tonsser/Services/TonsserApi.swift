@@ -15,11 +15,13 @@ final class TonsserApi {
     
     func getFollowers(for slug: String? = nil, completionHandler: @escaping (Bool, FollowersData?) -> Void) {
         var url: URL
+        
         if let slug = slug {
             url = URL(string: "\(TonsserApi.baseUrl)?current_follow_slug=\(slug)")!
         } else {
             url = URL(string: "\(TonsserApi.baseUrl)")!
         }
+        
         HTTPClient.get(from: url) { (json, error) in
             if error == nil {
                 do {

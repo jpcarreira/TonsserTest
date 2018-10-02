@@ -11,9 +11,7 @@ import Kingfisher
 
 
 final class TonsserProfileViewController: UIViewController {
-    
-    
-    
+
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var roleLabel: UILabel!
@@ -42,6 +40,7 @@ final class TonsserProfileViewController: UIViewController {
         if let image = userProfile?.profilePicture {
             profileImageView.kf.setImage(with: URL(string: image))
         }
+        
         nameLabel.text = userProfile?.name
         roleLabel.text = userProfile?.role
         locationLabel.text = userProfile?.location
@@ -49,6 +48,7 @@ final class TonsserProfileViewController: UIViewController {
         if let logo = userProfile?.team?.logoUrl {
             teamImageView.kf.setImage(with: URL(string: logo))
         }
+        
         teamNameLabel.text = userProfile?.team?.name
         playersLabel.text = "\(userProfile?.team?.players ?? 0) players"
         leagueNameLabel.text = userProfile?.team?.league

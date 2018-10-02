@@ -1,5 +1,5 @@
 //
-//  Follower.swift
+//  User.swift
 //  Tonsser
 //
 //  Created by João Carreira on 25/09/2018.
@@ -80,8 +80,9 @@ extension User: FollowerEntityProtocol {
     }
     
     var location: String {
-        // TODO:
-        return "London, UK"
+        // TODO: for simplicity we always return the same string here but this is the place where we could read from a local file or make
+        // an API call to translated the countryID into the string that displays the country in a user-friendly way
+        return "United Kingdom"
     }
     
     var isFollowing: Bool {
